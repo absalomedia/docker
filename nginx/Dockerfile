@@ -33,7 +33,7 @@ EXPOSE 80 443
 # RUN DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y
 
 RUN useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cache/nginx && \
-RUN	apt-get update && && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+	apt-get update && && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN	apt-get -y install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
 RUN	echo "Downloading nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp 
 RUN	echo "Downloading openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp 
