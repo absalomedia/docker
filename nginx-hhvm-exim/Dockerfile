@@ -1,6 +1,6 @@
-FROM funkygibbon/nginx-pagespeed
+FROM absalomedia/nginx-pagespeed
 
-MAINTAINER Ray Walker <hello@raywalker.it>
+MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
 	add-apt-repository "deb http://dl.hhvm.com/ubuntu $(lsb_release -sc) main" && \

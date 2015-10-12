@@ -1,20 +1,43 @@
-FROM funkygibbon/ubuntu
+# Use phusion/baseimage as base image. To make your builds
+# reproducible, make sure you lock down to a specific version, not
+# to `latest`! See
+# https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
+# for a list of version numbers.
+FROM phusion/baseimage:0.9.17
+MAINTAINER Lawrence Meckan <media@absalom.biz>
 
-EXPOSE 80
-EXPOSE 443
+# Set correct environment variables.
+ENV HOME /root
+ENV DEBIAN_FRONTEND noninteractive
+ENV DOCKER_NAME rev_nginx
 
-ENV NGINX_VERSION 1.9.3
+# Enable ssh access
+RUN rm -f /etc/service/sshd/down
 
-ENV OPENSSL_VERSION 1.0.1p
+# Regenerate SSH host keys. baseimage-docker does not contain any, so you
+# have to do that yourself. You may also comment out this instruction; the
+# init system will auto-generate one during boot.
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-COPY sources.list /etc/apt/sources.list
+# !!! Enabling the insecure key permanently !!! REMOVE ME AT PRODUCTION
+RUN /usr/sbin/enable_insecure_key
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
+### ...put your own build instructions here... ###
+
+EXPOSE 80 443
+
+# RUN apt-get update
+# RUN DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y
 
 RUN useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cache/nginx && \
-	apt-get update && \
-	apt-get -y install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev && \
-	echo "Downloading nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp && \
-	echo "Downloading openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp && \
-	cd /tmp/nginx-${NGINX_VERSION} && ./configure \
+RUN	apt-get update && && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+RUN	apt-get -y install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
+RUN	echo "Downloading nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp 
+RUN	echo "Downloading openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp 
+RUN	cd /tmp/nginx-${NGINX_VERSION} && ./configure \
 		--prefix=/etc/nginx  \
 		--sbin-path=/usr/sbin/nginx  \
 		--conf-path=/etc/nginx/nginx.conf  \
@@ -55,8 +78,8 @@ RUN useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cache/
 		--with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed' \
 		--with-ipv6 \
 		--with-pcre-jit \
-		--with-openssl=/tmp/openssl-${OPENSSL_VERSION} && make && make install && \
-	rm -Rf /tmp/* && \
+		--with-openssl=/tmp/openssl-${OPENSSL_VERSION} && make && make install
+RUN rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 	apt-get purge -yqq build-essential && \
 	apt-get autoremove -yqq && \
 	apt-get clean

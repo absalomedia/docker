@@ -1,6 +1,6 @@
-FROM funkygibbon/openjdk
+FROM absalomedia/openjdk
 
-MAINTAINER Ray Walker <hello@raywalker.it>
+MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 RUN apt-get -y install wget curl unzip && \
 	apt-get clean

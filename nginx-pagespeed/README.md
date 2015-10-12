@@ -4,11 +4,11 @@ Nginx 1.9.3
 ngx_pagespeed 1.9.32.6
 OpenSSL 1.0.1p
 
-Built on [funkygibbon/docker-ubuntu-base](https://registry.hub.docker.com/u/funkygibbon/docker-ubuntu-base/), a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
+Built on [absalomedia/docker-ubuntu-base](https://registry.hub.docker.com/u/absalomedia/docker-ubuntu-base/), a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
 
 ## TLDR;
 
-`docker run -v "/path/to/www:/app/www" -p "80:80" -p "443:443" funkygibbon/nginx-pagespeed`
+`docker run -v "/path/to/www:/app/www" -p "80:80" -p "443:443" absalomedia/nginx-pagespeed`
 
 Nginx is compiled from mainline source, if you would like to build the stable version, clone this repository and edit the `NGINX_VERSION` number to suit.
 
@@ -34,7 +34,7 @@ UPLOAD_MAX_SIZE | 30M
 NGINX_MAX_WORKER_PROCESSES | 8
 
 ```bash
-docker run -e "UPLOAD_MAX_SIZE=10M" funkygibbon/nginx-pagespeed
+docker run -e "UPLOAD_MAX_SIZE=10M" absalomedia/nginx-pagespeed
 ```
 
 ### On service start
@@ -66,7 +66,7 @@ An example docker-compose.yml file:
 
 ```yml
 app:
-  image: funkygibbon/nginx-pagespeed
+  image: absalomedia/nginx-pagespeed
   ports:
     - "80:80"
     - "443:443"

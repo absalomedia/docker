@@ -1,6 +1,6 @@
-FROM funkygibbon/nginx-pagespeed
+FROM absalomedia/nginx-pagespeed
 
-MAINTAINER Ray Walker <hello@raywalker.it>
+MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 RUN apt-get update && \
 	apt-get -y install \
