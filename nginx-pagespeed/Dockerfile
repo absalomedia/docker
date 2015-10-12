@@ -43,7 +43,7 @@ EXPOSE 80 443
 # RUN DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y
 
 RUN useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cache/nginx && \
-	apt-get update && && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+	apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN	apt-get -y install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev 
 RUN	echo "Downloading ngx_pagespeed v${PAGESPEED_VERSION} ..." && wget -qO - https://github.com/pagespeed/ngx_pagespeed/archive/v${PAGESPEED_VERSION}-beta.tar.gz | tar zxf - -C /tmp 
 RUN	echo "Downloading pagespeed psol v${PAGESPEED_VERSION} ..." && wget -qO - https://dl.google.com/dl/page-speed/psol/${PAGESPEED_VERSION}.tar.gz | tar xzf  - -C /tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta 
