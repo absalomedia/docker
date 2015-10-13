@@ -39,8 +39,3 @@ echo "html_errors = 1" >> /etc/hhvm/php.ini
 
 rm /app/www/index.html
 echo "<?php phpinfo(); " > /app/www/index.php
-
-# EXIM
-
-# enable TLS
-echo "MAIN_TLS_ENABLE = 1" >> /etc/exim4/exim4.conf.localmacros
