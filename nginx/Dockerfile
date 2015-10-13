@@ -31,6 +31,8 @@ CMD ["/sbin/my_init"]
 
 EXPOSE 80 443
 
+ADD . /app
+
 # RUN apt-get update
 # RUN DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y
 
