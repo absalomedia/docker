@@ -11,6 +11,8 @@ ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 ENV DOCKER_NAME rev_proxy_pagespeed
 
+ENV DEFAULT_TIMEZONE Australia/Brisbane
+
 
 # https://github.com/pagespeed/ngx_pagespeed/releases
 ENV PAGESPEED_VERSION 1.9.32.6

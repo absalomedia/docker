@@ -11,6 +11,8 @@ ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 ENV DOCKER_NAME rev_nginx
 
+ENV DEFAULT_TIMEZONE Australia/Brisbane
+
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
 
