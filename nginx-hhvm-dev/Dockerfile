@@ -4,6 +4,7 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
 	add-apt-repository "deb http://dl.hhvm.com/ubuntu $(lsb_release -sc) main" && \
+	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 	apt-get update && \
 	apt-get install -y hhvm hhvm-dev g++-4.9 libboost-dev libunwind7 && \
 	apt-get clean
