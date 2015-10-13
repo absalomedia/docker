@@ -3,7 +3,7 @@
 # to `latest`! See
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
-FROM phusion/baseimage:0.9.17
+FROM absalomedia/ubuntu-base
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
