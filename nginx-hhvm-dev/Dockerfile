@@ -6,7 +6,7 @@ RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e728
 	add-apt-repository "deb http://dl.hhvm.com/ubuntu $(lsb_release -sc) main" && \
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 	apt-get update && \
-	apt-get install -y hhvm hhvm-dev g++-4.9 libboost-dev libunwind8 libunwind8-dev && \
+	apt-get install -y hhvm hhvm-dev g++-4.9 libboost-dev libunwind8 libunwind8-dev ocaml-native-compilers libgoogle-glog-dev libgoogle-perftools-dev libjemalloc-dev && \
 	apt-get clean
 
 RUN mkdir /root/bin/ && \
