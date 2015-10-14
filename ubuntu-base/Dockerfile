@@ -14,6 +14,15 @@ ENV DEFAULT_TIMEZONE Australia/Brisbane
 # Automatic choose local mirror for sources list
 COPY sources.list /etc/apt/sources.list
 
+# Install wget
+RUN apt-get -q install -y wget
+
+# Install unzip
+RUN apt-get -q install -y unzip
+
+# Install git
+RUN apt-get -q install -y git
+
 # Update to latest packages and tidy up
 RUN apt-get update \
   && apt-get -y upgrade \
