@@ -2,8 +2,6 @@ FROM absalomedia/ubuntu-base
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
-ENV HOME /root
-ENV DEBIAN_FRONTEND noninteractive
 ENV DOCKER_NAME rev_proxy_pagespeed
 
 # https://github.com/pagespeed/ngx_pagespeed/releases

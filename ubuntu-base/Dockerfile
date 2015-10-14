@@ -16,20 +16,11 @@ COPY sources.list /etc/apt/sources.list
 
 # Update to latest packages and tidy up
 RUN apt-get update \
+  && apt-get -y install wget curl unzip git \
   && apt-get -y upgrade \
   && apt-get -y autoremove \
   && apt-get -y clean \
   && rm -rf /tmp/* /var/tmp/*
-
-# Install wget
-RUN apt-get -q install -y wget
-
-# Install unzip
-RUN apt-get -q install -y unzip
-
-# Install git
-RUN apt-get -q install -y git
-
 
 ADD . /app
 
