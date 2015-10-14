@@ -3,6 +3,8 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
 ENV DOCKER_NAME rev_nginx
+ENV NGINX_VERSION 1.9.3
+ENV OPENSSL_VERSION 1.0.1p
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
@@ -21,9 +23,6 @@ CMD ["/sbin/my_init"]
 ### ...put your own build instructions here... ###
 
 EXPOSE 80 443
-
-# RUN apt-get update
-# RUN DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y
 
 RUN useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cache/nginx
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
