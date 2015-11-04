@@ -1,14 +1,15 @@
-# Nginx + Pagespeed + OpenSSL + SASS module
+# Nginx + Pagespeed + OpenSSL + SASS
 
 Nginx 1.9.5
 ngx_pagespeed 1.9.32.6
 OpenSSL 1.0.1p
+SASS for Nginx module (with Libsass 3.3.1)
 
 Built on a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
 
 ## TLDR;
 
-`docker run -v "/path/to/www:/app/www" -p "80:80" -p "443:443" absalomedia/nginx-pagespeed`
+`docker run -v "/path/to/www:/app/www" -p "80:80" -p "443:443" absalomedia/sass-speed`
 
 Nginx is compiled from mainline source, if you would like to build the stable version, clone this repository and edit the `NGINX_VERSION` number to suit.
 
