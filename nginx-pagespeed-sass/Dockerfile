@@ -78,13 +78,13 @@ RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
         --with-mail  \
         --with-mail_ssl_module  \
         --with-file-aio  \
-        --with-http_v2_module \
-        --add-module=/tmp/sass-nginx-module && make install \
+        --with-http_v2_module \ 
         --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I /tmp/sass-nginx-module/lib/libsass/include'  \
         --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed -L /tmp/sass-nginx-module/lib/libsass/lib' \
         --with-ipv6 \
         --with-pcre-jit \
         --with-openssl=/tmp/openssl-${OPENSSL_VERSION} \
+        --add-module=/tmp/sass-nginx-module \
         --add-module=/tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta && make && make install
     RUN rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     apt-get purge -yqq wget build-essential && \
