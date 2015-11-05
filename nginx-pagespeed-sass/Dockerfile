@@ -39,9 +39,10 @@ RUN    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN    apt-get -y --no-install-recommends install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
 RUN    echo "Downloading ngx_pagespeed v${PAGESPEED_VERSION} ..." && wget -qO - https://github.com/pagespeed/ngx_pagespeed/archive/v${PAGESPEED_VERSION}-beta.tar.gz | tar zxf - -C /tmp
 RUN    echo "Downloading pagespeed psol v${PAGESPEED_VERSION} ..." && wget -qO - https://dl.google.com/dl/page-speed/psol/${PAGESPEED_VERSION}.tar.gz | tar xzf  - -C /tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta
-RUN echo "Downloading sass architecture ..." && cd /tmp && git clone https://github.com/absalomedia/sass-nginx-module.git && cd sass-nginx-module && git submodule init && git submodule update && cd lib/libsass && make shared
-RUN    echo "Downloading nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp
-RUN    echo "Downloading openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp
+RUN    echo "Downloading SASS architecture ..." && cd /tmp && git clone https://github.com/absalomedia/sass-nginx-module.git && cd sass-nginx-module && git submodule init && git submodule update && cd lib/libsass && make shared
+RUN    echo "Set up Libsass shared lib" && export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/tmp/sass-nginx-module/lib/libsass/lib"
+RUN    echo "Downloading Nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp
+RUN    echo "Downloading Openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp
 RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
         --prefix=/etc/nginx  \
         --sbin-path=/usr/sbin/nginx  \
@@ -79,14 +80,14 @@ RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
         --with-mail_ssl_module  \
         --with-file-aio  \
         --with-http_v2_module \ 
-        --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I /tmp/sass-nginx-module/lib/libsass/include'  \
-        --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed -L /tmp/sass-nginx-module/lib/libsass/lib' \
+        --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -I/tmp/sass-nginx-module/lib/libsass/include'  \
+        --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,-L/tmp/sass-nginx-module/lib/libsass/lib,relro -Wl,--as-needed' \
         --with-ipv6 \
         --with-pcre-jit \
         --with-openssl=/tmp/openssl-${OPENSSL_VERSION} \
-        --add-module=/tmp/sass-nginx-module && make \
+        --add-module=/tmp/sass-nginx-module \
         --add-module=/tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta && make && make install
-    RUN rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    RUN rm -Rf /var/lib/apt/lists/* /var/tmp/* && \
     apt-get purge -yqq wget build-essential && \
     apt-get autoremove -yqq && \
     apt-get clean
