@@ -1,4 +1,4 @@
-FROM absalomedia/nginx-sass-speed
+FROM absalomedia/sass-speed
 
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
