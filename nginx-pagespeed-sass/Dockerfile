@@ -84,7 +84,7 @@ RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
         --with-ipv6 \
         --with-pcre-jit \
         --with-openssl=/tmp/openssl-${OPENSSL_VERSION} \
-        --add-module=/tmp/sass-nginx-module \
+        --add-module=/tmp/sass-nginx-module && make \
         --add-module=/tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta && make && make install
     RUN rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     apt-get purge -yqq wget build-essential && \
