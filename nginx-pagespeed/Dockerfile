@@ -8,7 +8,7 @@ ENV DOCKER_NAME rev_proxy_pagespeed
 ENV PAGESPEED_VERSION 1.9.32.10
 
 # http://nginx.org/en/download.html
-ENV NGINX_VERSION 1.9.6
+ENV NGINX_VERSION 1.9.7
 
 # https://www.openssl.org/source
 ENV OPENSSL_VERSION 1.0.1p
