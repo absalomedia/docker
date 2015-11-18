@@ -1,7 +1,7 @@
 # Nginx + Pagespeed + OpenSSL + SASS
 
-Nginx 1.9.5
-ngx_pagespeed 1.9.32.6
+Nginx 1.9.7
+ngx_pagespeed 1.9.32.10
 OpenSSL 1.0.1p
 SASS for Nginx module (with Libsass 3.3.1)
 

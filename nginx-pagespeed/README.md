@@ -1,7 +1,7 @@
 # Nginx + Pagespeed + OpenSSL
 
-Nginx 1.9.3
-ngx_pagespeed 1.9.32.6
+Nginx 1.9.7
+ngx_pagespeed 1.9.32.10
 OpenSSL 1.0.1p
 
 Built on a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
