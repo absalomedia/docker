@@ -19,5 +19,6 @@ RUN apt-get update \
 
 ADD . /app
 
+RUN mkdir -p /etc/my_init.d
 RUN chmod +x /app/bin/*
 RUN ln -s /app/bin/set_timezone.sh /etc/my_init.d/00_set_timezone.sh
