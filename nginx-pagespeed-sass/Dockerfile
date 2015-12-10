@@ -11,7 +11,7 @@ ENV PAGESPEED_VERSION 1.9.32.10
 ENV NGINX_VERSION 1.9.9
 
 # https://www.openssl.org/source
-ENV OPENSSL_VERSION 1.0.1p
+ENV OPENSSL_VERSION 1.0.1q
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down

@@ -2,7 +2,7 @@
 
 Nginx 1.9.9
 ngx_pagespeed 1.9.32.10
-OpenSSL 1.0.1p
+OpenSSL 1.0.1q
 SASS for Nginx module (with Libsass 3.3.2)
 
 Built on a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
