@@ -8,7 +8,7 @@ ENV DOCKER_NAME rev_nginx_sass_speed
 ENV PAGESPEED_VERSION 1.9.32.10
 
 # http://nginx.org/en/download.html
-ENV NGINX_VERSION 1.9.7
+ENV NGINX_VERSION 1.9.9
 
 # https://www.openssl.org/source
 ENV OPENSSL_VERSION 1.0.1p
@@ -80,6 +80,7 @@ RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
         --with-mail_ssl_module  \
         --with-file-aio  \
         --with-http_v2_module \ 
+        --with-http_slice_module \
         --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -I/tmp/sass-nginx-module/lib/libsass/include -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2'  \
         --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-L/tmp/sass-nginx-module/lib/libsass/lib,-z,relro -Wl,--as-needed' \
         --with-ipv6 \

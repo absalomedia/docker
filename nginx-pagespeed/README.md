@@ -1,6 +1,6 @@
 # Nginx + Pagespeed + OpenSSL
 
-Nginx 1.9.7
+Nginx 1.9.9
 ngx_pagespeed 1.9.32.10
 OpenSSL 1.0.1p
 

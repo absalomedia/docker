@@ -3,7 +3,7 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
 ENV DOCKER_NAME rev_nginx
-ENV NGINX_VERSION 1.9.7
+ENV NGINX_VERSION 1.9.9
 ENV OPENSSL_VERSION 1.0.1p
 
 # Enable ssh access
@@ -65,6 +65,7 @@ RUN cd /tmp/nginx-${NGINX_VERSION} && ./configure \
 		--with-mail  \
 		--with-mail_ssl_module  \
 		--with-file-aio  \
+		--with-http_slice_module \
 		--with-http_v2_module \
 		--with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2'  \
 		--with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed' \
