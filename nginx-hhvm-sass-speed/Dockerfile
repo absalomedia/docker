@@ -12,10 +12,7 @@ RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e728
 RUN sudo /usr/share/hhvm/install_fastcgi.sh
 RUN sudo /etc/init.d/hhvm restart
 RUN sudo update-rc.d hhvm defaults
-RUN sudo /usr/bin/update-alternatives \
-   --install /usr/bin/php php /usr/bin/hhvm 60
 
-RUN sudo service nginx restart
 RUN nginx -V
 RUN mkdir /root/bin/ && \
 	echo "export PATH=/root/bin:$PATH" > /root/.bashrc
