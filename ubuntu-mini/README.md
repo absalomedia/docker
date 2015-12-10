@@ -1,6 +1,6 @@
 # docker-ubuntu-base
 
-https://registry.hub.docker.com/u/absalomedia/docker-ubuntu-base/
+https://registry.hub.docker.com/u/absalomedia/mini/
 
 Automated daily build of an Ubuntu trusty base image using Deb Bootstrap
 
