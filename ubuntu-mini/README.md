@@ -1,4 +1,4 @@
-# docker-ubuntu-base
+# mini
 
 https://registry.hub.docker.com/u/absalomedia/mini/
 
