@@ -1,6 +1,6 @@
 # Nginx + PHP5-FPM + Exim
 
-Webserver stack built on top of  [absalomedia/nginx-pagespeed](https://registry.hub.docker.com/u/absalomedia/nginx-pagespeed/), which is built on a [lightly modified Phusion Ubuntu base image](https://registry.hub.docker.com/u/absalomedia/docker-ubuntu-base/)
+Webserver stack built on top of  [absalomedia/nginx-pagespeed](https://registry.hub.docker.com/u/absalomedia/nginx-pagespeed/), which is built on a [lightly modified Ubuntu Bootstrap image](https://registry.hub.docker.com/u/absalomedia/mini/)
 
 Configurable via a plethora of environment variables, which are applied either on each boot or on service start
 

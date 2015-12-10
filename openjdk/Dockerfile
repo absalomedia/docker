@@ -1,4 +1,4 @@
-FROM absalomedia/ubuntu-base
+FROM absalomedia/mini
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
