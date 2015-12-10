@@ -1,4 +1,4 @@
-FROM ubuntu-debootstrap/latest
+FROM library/ubuntu-debootstrap:latest
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Tell the conatiner there is no tty
