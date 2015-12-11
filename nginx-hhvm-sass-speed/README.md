@@ -1,6 +1,6 @@
 # Nginx + HHVM + SASS + Pagespeed (alpha)
 
-Awesomesauce build of everything built on  [absalomedia/nginx-sass-speed](https://registry.hub.docker.com/u/absalomedia/nginx-sass-speed/), which is built on a [lightly modified Phusion Ubuntu base image](https://registry.hub.docker.com/u/absalomedia/docker-ubuntu-base/)
+Awesomesauce build of everything built on  [absalomedia/sass-speed](https://registry.hub.docker.com/u/absalomedia/sass-speed/), using a [lightly modified Ubuntu Bootstrap](https://registry.hub.docker.com/u/absalomedia/mini/) base
 
 Configurable via a plethora of environment variables, which are applied either on each boot or on service start
 

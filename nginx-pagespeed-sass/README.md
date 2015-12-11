@@ -5,7 +5,7 @@ ngx_pagespeed 1.9.32.10
 OpenSSL 1.0.1q
 SASS for Nginx module (with Libsass 3.3.2)
 
-Built on a lightly modified [Phusion Base Image](https://phusion.github.io/baseimage-docker/)
+Built on a [lightly modified Ubuntu Bootstrap](https://registry.hub.docker.com/u/absalomedia/mini/) base
 
 ## TLDR;
 
@@ -67,7 +67,7 @@ An example docker-compose.yml file:
 
 ```yml
 app:
-  image: absalomedia/nginx-pagespeed
+  image: absalomedia/sass-speed
   ports:
     - "80:80"
     - "443:443"
