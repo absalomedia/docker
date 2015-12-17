@@ -32,7 +32,7 @@ RUN    apt-get -y --no-install-recommends install wget build-essential zlib1g-de
 RUN    echo "Downloading ngx_pagespeed v${PAGESPEED_VERSION} ..." && wget -qO - https://github.com/pagespeed/ngx_pagespeed/archive/v${PAGESPEED_VERSION}-beta.tar.gz | tar zxf - -C /tmp
 RUN    echo "Downloading pagespeed psol v${PAGESPEED_VERSION} ..." && wget -qO - https://dl.google.com/dl/page-speed/psol/${PAGESPEED_VERSION}.tar.gz | tar xzf  - -C /tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta
 RUN    echo "Downloading SASS architecture ..." && cd /tmp && git clone https://github.com/absalomedia/sass-nginx-module.git && cd sass-nginx-module && git submodule init && git submodule update && cd lib/libsass && make shared && cd lib && ls -asl && cp libsass.so /usr/lib/libsass.so
-RUN    echo "Set up Libsass shared lib" && cd /usr/lib && ls -asl
+RUN    echo "Set up Libsass shared lib" && cd /usr/lib && make shared && ls -asl
 RUN    echo "Downloading Nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp
 RUN    echo "Downloading Openssl v${OPENSSL_VERSION} ..." && wget -qO - https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | tar xzf  - -C /tmp
 RUN    cd /tmp/nginx-${NGINX_VERSION} && ./configure \
