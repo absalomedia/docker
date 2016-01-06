@@ -5,7 +5,7 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 ENV DOCKER_NAME rev_nginx_sass_speed
 
 # https://github.com/pagespeed/ngx_pagespeed/releases
-ENV PAGESPEED_VERSION 1.9.32.10
+ENV PAGESPEED_VERSION 1.10.33.2
 
 # http://nginx.org/en/download.html
 ENV NGINX_VERSION 1.9.9
