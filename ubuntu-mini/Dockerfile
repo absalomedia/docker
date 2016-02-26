@@ -1,4 +1,4 @@
-FROM blitznote/debootstrap-amd64:16.04
+FROM ubuntu/trusty:latest
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Tell the conatiner there is no tty
