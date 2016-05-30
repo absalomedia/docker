@@ -1,9 +1,9 @@
 # Nginx + Pagespeed + OpenSSL + SASS
 
-Nginx 1.9.9
-ngx_pagespeed 1.10.33.2
-OpenSSL 1.0.1q
-SASS for Nginx module (with Libsass 3.3.2)
+Nginx 1.9.15
+ngx_pagespeed 1.11.33.0
+OpenSSL 1.0.1t
+SASS for Nginx module (with Libsass 3.3.6)
 
 Built on a [lightly modified Ubuntu Bootstrap](https://registry.hub.docker.com/u/absalomedia/mini/) base
 

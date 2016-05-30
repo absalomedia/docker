@@ -1,8 +1,8 @@
 # Nginx + Pagespeed + OpenSSL
 
-Nginx 1.9.10
-ngx_pagespeed 1.10.33.2
-OpenSSL 1.0.1r
+Nginx 1.9.15
+ngx_pagespeed 1.11.33.0
+OpenSSL 1.0.1t
 
 Built on a [lightly modified Ubuntu Bootstrap](https://registry.hub.docker.com/u/absalomedia/mini/) base
 
