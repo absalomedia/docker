@@ -1,4 +1,4 @@
-FROM ubuntu/trusty:latest
+FROM ubuntu/xenial
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Tell the conatiner there is no tty
