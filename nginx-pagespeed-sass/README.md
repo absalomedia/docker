@@ -1,11 +1,9 @@
 # Nginx + Pagespeed + OpenSSL + SASS
 
-Nginx 1.9.15
-ngx_pagespeed 1.11.33.0
-OpenSSL 1.0.1t
-SASS for Nginx module (with Libsass 3.3.6)
+![Nginx 1.9.15](https://img.shields.io/badge/nginx-1.9.15-orange.svg) ![Pagespeed 1.11.33.0](https://img.shields.io/badge/pagespeed-1.11.33.0-blue.svg) ![OpenSSL 1.0.1t](https://img.shields.io/badge/openssl.1.0.1t-blue.svg) Sass for Nginx using ![Libsass 3.3.6](https://img.shields.io/badge/libsass-3.3.6-yellow.svg)
 
-Built on a [lightly modified Ubuntu Bootstrap](https://registry.hub.docker.com/u/absalomedia/mini/) base
+
+Built on a [lightly modified Ubuntu Xenial](https://registry.hub.docker.com/u/absalomedia/mini/) base
 
 ## TLDR;
 
