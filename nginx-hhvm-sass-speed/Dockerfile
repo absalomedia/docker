@@ -3,18 +3,11 @@ FROM absalomedia/sass-speed
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 RUN apt-get update && \
-	apt-get install -y hhvm && \
-	apt-get clean
+    apt-get install -y hhvm && \
+    apt-get clean
 
-RUN sudo /usr/share/hhvm/install_fastcgi.sh
-RUN sudo /etc/init.d/hhvm restart
-RUN sudo update-rc.d hhvm defaults
-RUN sudo /usr/bin/update-alternatives \
-   --install /usr/bin/php php /usr/bin/hhvm 60
-
-RUN nginx -V
 RUN mkdir /root/bin/ && \
-	echo "export PATH=/root/bin:$PATH" > /root/.bashrc
+    echo "export PATH=/root/bin:$PATH" > /root/.bashrc
 
 EXPOSE 443
 EXPOSE 80
@@ -29,7 +22,7 @@ ENV DEFAULT_APP_UID 1000
 ENV DEFAULT_APP_GID 1000
 ENV DEFAULT_UPLOAD_MAX_SIZE 30M
 ENV DEFAULT_NGINX_MAX_WORKER_PROCESSES 8
-ENV DEFAULT_NGINX_KEEPALIVE_TIMEOUT 30 
+ENV DEFAULT_NGINX_KEEPALIVE_TIMEOUT 30
 ENV DEFAULT_PHP_MEMORY_LIMIT 128M
 ENV DEFAULT_PHP_PROCESS_MANAGER dynamic
 ENV DEFAULT_PHP_MAX_CHILDREN 6
@@ -43,8 +36,6 @@ COPY . /app
 RUN chmod 750 /app/bin/*
 
 RUN /app/bin/init_hhvm.sh
-
-RUN nginx -V
 
 ENTRYPOINT ["/app/bin/boot.sh"]
 
