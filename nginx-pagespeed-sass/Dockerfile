@@ -8,10 +8,10 @@ ENV DOCKER_NAME rev_nginx_sass_speed
 ENV PAGESPEED_VERSION 1.11.33.0
 
 # http://nginx.org/en/download.html
-ENV NGINX_VERSION 1.9.15
+ENV NGINX_VERSION 1.10.1
 
 # https://www.openssl.org/source
-ENV OPENSSL_VERSION 1.0.1t
+ENV OPENSSL_VERSION 1.0.2h
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
