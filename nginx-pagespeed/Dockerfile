@@ -5,13 +5,13 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 ENV DOCKER_NAME rev_proxy_pagespeed
 
 # https://github.com/pagespeed/ngx_pagespeed/releases
-ENV PAGESPEED_VERSION 1.11.33.0
+ENV PAGESPEED_VERSION 1.12.34.2
 
 # http://nginx.org/en/download.html
-ENV NGINX_VERSION 1.10.1
+ENV NGINX_VERSION 1.12.0
 
 # https://www.openssl.org/source
-ENV OPENSSL_VERSION 1.0.2h
+ENV OPENSSL_VERSION 1.1.0e
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
