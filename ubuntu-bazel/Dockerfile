@@ -20,7 +20,7 @@ CMD ["/sbin/my_init"]
 
 ### ...put your own build instructions here... ###
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
-RUN apt-get-y -no-install-recommends install git curl wget python-software-properties unzip git build-essential clang-3.6 pkg-config zip zlib1g-dev default-jdk python-numpy swig python-dev python-wheel software-properties-common
+RUN apt-get -y -no-install-recommends install git curl wget python-software-properties unzip git build-essential clang-3.6 pkg-config zip zlib1g-dev default-jdk python-numpy swig python-dev python-wheel software-properties-common
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.7" | sudo tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
 RUN apt-get update && apt-get -y install bazel
