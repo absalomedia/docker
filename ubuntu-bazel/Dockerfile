@@ -25,7 +25,8 @@ RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.7
 RUN tee /etc/apt/sources.list.d/bazel.list
 RUN wget https://bazel.build/bazel-release.pub.gpg
 RUN apt-key add bazel-release.pub.gpg
-RUN apt-get update && apt-get -y install bazel
+RUN apt-get update
+RUN apt-get install bazel -y
 
 RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/docker && chmod +x /usr/bin/docker
 
