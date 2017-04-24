@@ -23,7 +23,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN apt-get -y install git curl wget python-software-properties unzip build-essential clang-3.6 python-numpy swig python-dev python-wheel software-properties-common
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.7"
 RUN tee /etc/apt/sources.list.d/bazel.list
-RUN apt-key adv --fetch-keys https://bazel.build/bazel-release.pub.gpg
+RUN wget https://bazel.build/bazel-release.pub.gpg
+RUN apt-key add bazel-release.pub.gpg
 RUN apt-get update && apt-get -y install bazel
 
 RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/docker && chmod +x /usr/bin/docker
