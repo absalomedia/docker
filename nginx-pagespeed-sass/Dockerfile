@@ -5,13 +5,13 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 ENV DOCKER_NAME rev_nginx_sass_speed
 
 # https://github.com/pagespeed/ngx_pagespeed/releases
-ENV PAGESPEED_VERSION 1.11.33.0
+ENV PAGESPEED_VERSION 1.12.34.2
 
 # http://nginx.org/en/download.html
-ENV NGINX_VERSION 1.10.1
+ENV NGINX_VERSION 1.12.0
 
 # https://www.openssl.org/source
-ENV OPENSSL_VERSION 1.0.2h
+ENV OPENSSL_VERSION 1.1.0e
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
@@ -30,7 +30,7 @@ RUN    useradd -r -s /usr/sbin/nologin nginx && mkdir -p /var/log/nginx /var/cac
 RUN    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN    apt-get -y --no-install-recommends install wget build-essential zlib1g-dev libpcre3-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
 RUN    echo "Downloading ngx_pagespeed v${PAGESPEED_VERSION} ..." && wget -qO - https://github.com/pagespeed/ngx_pagespeed/archive/v${PAGESPEED_VERSION}-beta.tar.gz | tar zxf - -C /tmp
-RUN    echo "Downloading pagespeed psol v${PAGESPEED_VERSION} ..." && wget -qO - https://dl.google.com/dl/page-speed/psol/${PAGESPEED_VERSION}.tar.gz | tar xzf  - -C /tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta
+RUN    echo "Downloading pagespeed psol v${PAGESPEED_VERSION} ..." && wget -qO - https://dl.google.com/dl/page-speed/psol/${PAGESPEED_VERSION}-x64.tar.gz | tar xzf  - -C /tmp/ngx_pagespeed-${PAGESPEED_VERSION}-beta
 RUN    echo "Downloading SASS architecture ..." && cd /tmp && git clone https://github.com/absalomedia/sass-nginx-module.git && cd sass-nginx-module && git submodule init && git submodule update && cd lib/libsass && make shared && cd lib && ls -asl && cp libsass.so /usr/lib/libsass.so
 RUN    echo "Set up Libsass shared lib" && cd /usr/lib && ls -asl
 RUN    echo "Downloading Nginx v${NGINX_VERSION} ..." && wget -qO - http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz | tar zxf - -C /tmp
