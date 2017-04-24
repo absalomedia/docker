@@ -1,6 +1,6 @@
 # Nginx + HHVM + SASS + OpenSSL + Pagespeed
 
-![Nginx 1.10.1](https://img.shields.io/badge/nginx-1.10.1-orange.svg) ![Pagespeed 1.11.33.0](https://img.shields.io/badge/pagespeed-1.11.33.0-blue.svg) ![OpenSSL 1.0.2h](https://img.shields.io/badge/openssl-1.0.2h-red.svg) Sass for Nginx using ![Libsass 3.3.6](https://img.shields.io/badge/libsass-3.3.6-yellow.svg) ![HHVM 3.14.1](https://img.shields.io/badge/hhvm-3.14.1-green.svg)
+![Nginx 1.12.0](https://img.shields.io/badge/nginx-1.12.0-orange.svg) ![Pagespeed 1.13.34.2](https://img.shields.io/badge/pagespeed-1.12.34.2-blue.svg) ![OpenSSL 1.1.0e](https://img.shields.io/badge/openssl-1.1.0e-red.svg) Sass for Nginx using ![Libsass 3.4.4](https://img.shields.io/badge/libsass-3.4.4-yellow.svg) ![HHVM 3.19.1](https://img.shields.io/badge/hhvm-3.19.1-green.svg)
 
 Awesomesauce build of everything built on  [absalomedia/sass-speed](https://registry.hub.docker.com/u/absalomedia/sass-speed/), using a Ubuntu Xenial base.
 
