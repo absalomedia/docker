@@ -5,20 +5,29 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 RUN apt-get update && \
 	apt-get -y install \
 		exim4 \
-		php5-fpm \
-		php5-mysql \
-		php-apc \
-		php5-cli \
-		php5-curl \
-		php5-gd \
-		php5-intl \
-		php5-imagick \
-		php5-imap \
-		php5-mcrypt \
-		php5-mhash \
-		php5-redis \
-		php5-xdebug \
-		php5-recode && \
+		php7.1 \ 
+		php7.1-cli \
+		php7.1-common \
+		php7.1-mysql \
+		php7.1-fpm \
+		php7.1-pgsql \
+		php7.1-sqlite3 \
+		php7.1-mongo \
+		php7.1-redis \
+		php7.1-intl \
+		php7.1-tidy \
+		php7.1-readline \
+		php7.1-ssh2 \
+		php7.1-json \
+		php7.1-mcrypt \
+		php7.1-curl \
+		php7.1-imap \
+		php7.1-gd \
+		php-uploadprogress \
+		php7.1-apc \
+		php7.1-xml \
+		php7.1-mbstring \
+		php7.1-imagick \
 	php5enmod mcrypt imap && \
 	apt-get clean
 
