@@ -18,18 +18,35 @@ RUN rm -f /etc/service/sshd/down
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.13.1 > /usr/bin/docker && chmod +x /usr/bin/docker
-
 ### ...put your own build instructions here... ###
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN apt-get -y install git curl wget python-software-properties unzip build-essential clang-3.6 python-numpy swig python-dev python-wheel software-properties-common
-RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.7"
-RUN tee /etc/apt/sources.list.d/bazel.list
-RUN wget https://bazel.build/bazel-release.pub.gpg
-RUN apt-key add bazel-release.pub.gpg
-RUN apt-get update
-RUN apt-get install bazel
 
+RUN apt-get install -y openjdk-8-jdk && \
+	apt-get install -y ant && \
+	apt-get clean;
+	
+# Fix certificate issues, found as of 
+# https://bugs.launchpad.net/ubuntu/+source/ca-certificates-java/+bug/983302
+RUN apt-get update && \
+	apt-get install ca-certificates-java && \
+	apt-get clean && \
+	update-ca-certificates -f;
+
+# Setup JAVA_HOME, this is useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list \
+  && curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
+
+RUN apt-get update \
+  && apt-get install -y bazel \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set up workspace
+RUN mkdir -p /usr/src
+ENV WORKSPACE /usr/src
 WORKDIR /usr/src
 
 CMD ["/sbin/my_init"]
