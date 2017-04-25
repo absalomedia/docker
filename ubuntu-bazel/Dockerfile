@@ -18,6 +18,8 @@ RUN rm -f /etc/service/sshd/down
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
+RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.13.1 > /usr/bin/docker && chmod +x /usr/bin/docker
+
 ### ...put your own build instructions here... ###
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN apt-get -y install git curl wget python-software-properties unzip build-essential clang-3.6 python-numpy swig python-dev python-wheel software-properties-common
@@ -26,9 +28,7 @@ RUN tee /etc/apt/sources.list.d/bazel.list
 RUN wget https://bazel.build/bazel-release.pub.gpg
 RUN apt-key add bazel-release.pub.gpg
 RUN apt-get update
-RUN apt-get install bazel -y
-
-RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/docker && chmod +x /usr/bin/docker
+RUN apt-get install bazel
 
 WORKDIR /usr/src
 
