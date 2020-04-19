@@ -3,8 +3,8 @@ MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Set correct environment variables.
 ENV DOCKER_NAME rev_nginx
-ENV NGINX_VERSION 1.12.0
-ENV OPENSSL_VERSION 1.1.0e
+ENV NGINX_VERSION 1.17.10
+ENV OPENSSL_VERSION 1.1.1f
 
 # Enable ssh access
 RUN rm -f /etc/service/sshd/down
