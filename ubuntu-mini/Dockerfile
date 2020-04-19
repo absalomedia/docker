@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Lawrence Meckan <media@absalom.biz>
 
 # Tell the conatiner there is no tty
