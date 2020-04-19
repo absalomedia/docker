@@ -1,6 +1,6 @@
 # Nginx + Pagespeed + OpenSSL
 
-![Nginx 1.12.0](https://img.shields.io/badge/nginx-1.12.0-orange.svg) ![Pagespeed 1.13.34.2](https://img.shields.io/badge/pagespeed-1.12.34.2-blue.svg) ![OpenSSL 1.1.0e](https://img.shields.io/badge/openssl-1.1.0e-red.svg)
+![Nginx 1.17.10](https://img.shields.io/badge/nginx-1.17.10-orange.svg) ![Pagespeed 1.13.34.2](https://img.shields.io/badge/pagespeed-1.12.34.2-blue.svg) ![OpenSSL 1.1.0e](https://img.shields.io/badge/openssl-1.1.0e-red.svg)
 
 Built on a [lightly modified Ubuntu Bionic](https://registry.hub.docker.com/u/absalomedia/mini/) base
 
